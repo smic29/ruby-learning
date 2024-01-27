@@ -1,18 +1,20 @@
 # Encapsulation
 
 class Person
+  attr_reader :first_name, :last_name
+
   def initialize(first_name, last_name)
     @first_name = first_name
     @last_name = last_name
   end
 
-  def full_name
-    puts @first_name + " " + @last_name
+  def show_full_name
+    puts first_name + " " + last_name
   end
 end
 
 spicy = Person.new('spicy','sibulo')
-spicy.full_name
+spicy.show_full_name
 
 
 # Abstraction
@@ -44,6 +46,10 @@ class Living_Thing
   def sleep
     puts "Be more specific with what sleeps"
   end
+
+  def make_sleepable()
+    sleep
+  end
 end
 
 class Human < Living_Thing
@@ -64,17 +70,13 @@ class Cat < Living_Thing
   end
 end
 
-def make_sleepable(thing)
-  thing.sleep
-end
-
 bob = Human.new
 brownie = Dog.new
 some_cat_name = Cat.new
 
-make_sleepable(bob)
-make_sleepable(brownie)
-make_sleepable(some_cat_name)
+bob.make_sleepable()
+brownie.make_sleepable()
+some_cat_name.make_sleepable()
 
 ## Duck-typing
 
