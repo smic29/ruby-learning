@@ -22,3 +22,13 @@ WHERE id = 1;
 
 DELETE FROM students
 WHERE id = (SELECT MAX(id) FROM students);
+
+SELECT COUNT(*) AS number_of_students FROM students;
+
+SELECT * FROM students
+WHERE location = 'Manila';
+
+SELECT AVG(age) AS average_student_age from students;
+
+SELECT * FROM students
+ORDER BY age DESC;
