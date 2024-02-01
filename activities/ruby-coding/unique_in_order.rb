@@ -1,21 +1,18 @@
 def unique_in_order(item)
+  check = item.is_a?(String) ? item.each_char : item
   new_char = []
 
-  if item.is_a?(String)
-    item.each_char do |char|
-      if new_char.empty? || new_char.last != char
-        new_char << char
-      end
-    end
-  else
-    item.each do |char|
-      if new_char.empty? || new_char.last != char
-        new_char << char
-      end
+  check.each do |char|
+    if is_same_as_last?(new_char, char)
+      new_char << char
     end
   end
 
   new_char
+end
+
+def is_same_as_last?(arr, elem)
+  arr.empty? || arr.last != elem
 end
 
 print "#{unique_in_order('AAAABBBCCDAABBB')}\n"
