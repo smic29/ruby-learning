@@ -1,7 +1,8 @@
 def reverse_alternate(string)
-  string.split.each_with_index do |word, index|
-    word.reverse! if index.odd?
-  end.join(' ')
+  # string.split.each_with_index do |word, index|
+  #   word.reverse! if index.odd?
+  # end.join(' ')
+  string.split.each_with_index { |word, index| word.reverse! if index.odd? }.join(' ')
 end
 
 p reverse_alternate('Did it work?')
